@@ -1,0 +1,105 @@
+@prefix s2a: <https://isep.example.org/s2a#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+############################
+# ONTOLOGY
+############################
+
+s2a: a owl:Ontology .
+
+############################
+# CLASSES
+############################
+
+s2a:Course a owl:Class .
+s2a:Student a owl:Class .
+s2a:Skill a owl:Class .
+s2a:Paper a owl:Class .
+s2a:CareerRole a owl:Class .
+s2a:Specialization a owl:Class .
+s2a:Module a owl:Class .
+
+############################
+# DISJOINT CLASSES
+############################
+
+[] a owl:AllDisjointClasses ;
+   owl:members ( s2a:Course s2a:Student s2a:Skill s2a:Paper
+                 s2a:CareerRole s2a:Specialization s2a:Module ) .
+
+############################
+# OBJECT PROPERTIES
+############################
+
+s2a:hasPrerequisite a owl:ObjectProperty ;
+    rdfs:domain s2a:Course ;
+    rdfs:range  s2a:Course .
+
+s2a:hasCompleted a owl:ObjectProperty ;
+    rdfs:domain s2a:Student ;
+    rdfs:range  s2a:Course .
+
+s2a:coversSkill a owl:ObjectProperty ;
+    rdfs:domain s2a:Course ;
+    rdfs:range  s2a:Skill .
+
+s2a:relatedPaper a owl:ObjectProperty ;
+    rdfs:domain s2a:Course ;
+    rdfs:range  s2a:Paper .
+
+s2a:requiresSkill a owl:ObjectProperty ;
+    rdfs:domain s2a:CareerRole ;
+    rdfs:range  s2a:Skill .
+
+s2a:preparesFor a owl:ObjectProperty ;
+    rdfs:domain s2a:Course ;
+    rdfs:range  s2a:CareerRole .
+
+s2a:belongsToModule a owl:ObjectProperty ;
+    rdfs:domain s2a:Course ;
+    rdfs:range  s2a:Module .
+
+s2a:targetsSpecialization a owl:ObjectProperty ;
+    rdfs:domain s2a:Course ;
+    rdfs:range  s2a:Specialization .
+
+############################
+# PROPERTY CHAIN (RULE)
+############################
+
+s2a:isEligibleFor a owl:ObjectProperty ;
+    owl:propertyChainAxiom ( s2a:hasCompleted [ owl:inverseOf s2a:hasPrerequisite ] ) ;
+    a owl:AsymmetricProperty , owl:IrreflexiveProperty ;
+    rdfs:domain s2a:Student ;
+    rdfs:range  s2a:Course .
+
+############################
+# DATA PROPERTIES
+############################
+
+s2a:title a owl:DatatypeProperty ;
+    rdfs:domain s2a:Course ;
+    rdfs:range xsd:string .
+
+s2a:ects a owl:DatatypeProperty ;
+    rdfs:domain s2a:Course ;
+    rdfs:range xsd:decimal .
+
+s2a:semester a owl:DatatypeProperty ;
+    rdfs:domain s2a:Course ;
+    rdfs:range xsd:string .
+
+s2a:url a owl:DatatypeProperty ;
+    rdfs:domain s2a:Paper ;
+    rdfs:range xsd:anyURI .
+
+s2a:year a owl:DatatypeProperty ;
+    rdfs:domain s2a:Paper ;
+    rdfs:range xsd:gYear .
+
+s2a:code a owl:DatatypeProperty ;
+    rdfs:domain s2a:Course ;
+    rdfs:range xsd:string .

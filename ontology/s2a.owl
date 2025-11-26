@@ -6,9 +6,10 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="https://isep.example.org/s2a#">
-    <Prefix name="" IRI="http://www.semanticweb.org/walydalami/ontologies/2025/10/untitled-ontology-11/"/>
+    <Prefix name="" IRI="https://isep.example.org/s2a#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="s2a" IRI="https://isep.example.org/s2a#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
@@ -113,6 +114,10 @@
         <Class IRI="Course"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="isEligibleFor"/>
+        <Class IRI="Student"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="preparesFor"/>
         <Class IRI="Course"/>
     </ObjectPropertyDomain>
@@ -145,6 +150,10 @@
         <Class IRI="Course"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="isEligibleFor"/>
+        <Class IRI="Course"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="preparesFor"/>
         <Class IRI="CareerRole"/>
     </ObjectPropertyRange>
@@ -160,6 +169,15 @@
         <ObjectProperty IRI="targetsSpecialization"/>
         <Class IRI="Specialization"/>
     </ObjectPropertyRange>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="hasCompleted"/>
+            <ObjectInverseOf>
+                <ObjectProperty IRI="hasPrerequisite"/>
+            </ObjectInverseOf>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="isEligibleFor"/>
+    </SubObjectPropertyOf>
     <DataPropertyDomain>
         <DataProperty IRI="code"/>
         <Class IRI="Course"/>
