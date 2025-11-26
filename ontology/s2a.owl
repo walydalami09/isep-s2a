@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="https://isep.example.org/s2a#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="https://isep.example.org/s2a#">
+    <Prefix name="" IRI="http://www.semanticweb.org/walydalami/ontologies/2025/10/untitled-ontology-11/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="CareerRole"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Course"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Module"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Paper"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Skill"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Specialization"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Student"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="belongsToModule"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="coversSkill"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasCompleted"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasPrerequisite"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="isEligibleFor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="preparesFor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="relatedPaper"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="requiresSkill"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="targetsSpecialization"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="code"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="ects"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="semester"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="title"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="url"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="year"/>
+    </Declaration>
+    <Declaration>
+        <Datatype abbreviatedIRI="xsd:gYear"/>
+    </Declaration>
+    <DisjointClasses>
+        <Class IRI="CareerRole"/>
+        <Class IRI="Course"/>
+        <Class IRI="Module"/>
+        <Class IRI="Paper"/>
+        <Class IRI="Skill"/>
+        <Class IRI="Specialization"/>
+        <Class IRI="Student"/>
+    </DisjointClasses>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="isEligibleFor"/>
+    </AsymmetricObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="isEligibleFor"/>
+    </IrreflexiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="belongsToModule"/>
+        <Class IRI="Course"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="coversSkill"/>
+        <Class IRI="Course"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasCompleted"/>
+        <Class IRI="Student"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasPrerequisite"/>
+        <Class IRI="Course"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="preparesFor"/>
+        <Class IRI="Course"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="relatedPaper"/>
+        <Class IRI="Course"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="requiresSkill"/>
+        <Class IRI="CareerRole"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="targetsSpecialization"/>
+        <Class IRI="Course"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="belongsToModule"/>
+        <Class IRI="Module"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="coversSkill"/>
+        <Class IRI="Skill"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasCompleted"/>
+        <Class IRI="Course"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasPrerequisite"/>
+        <Class IRI="Course"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="preparesFor"/>
+        <Class IRI="CareerRole"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="relatedPaper"/>
+        <Class IRI="Paper"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="requiresSkill"/>
+        <Class IRI="Skill"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="targetsSpecialization"/>
+        <Class IRI="Specialization"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="code"/>
+        <Class IRI="Course"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="ects"/>
+        <Class IRI="Course"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="semester"/>
+        <Class IRI="Course"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="title"/>
+        <Class IRI="Course"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="url"/>
+        <Class IRI="Paper"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="year"/>
+        <Class IRI="Paper"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="code"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="ects"/>
+        <Datatype abbreviatedIRI="xsd:decimal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="semester"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="title"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="url"/>
+        <Datatype abbreviatedIRI="xsd:anyURI"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="year"/>
+        <Datatype abbreviatedIRI="xsd:gYear"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
